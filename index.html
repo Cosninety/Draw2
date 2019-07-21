@@ -158,12 +158,14 @@ canvas.addEventListener('touchmove', function(e){
   draw2(e.changedTouches[1].pageX, e.changedTouches[1].pageY);
 });
 
-draw2 = function(x, y){
+draw = function(x, y){
   contx.beginPath();
   contx.fillStyle = penColor.value;
+  //for circle
   // contx.arc(x, y, 30, 0, 2 * Math.PI);
+  contx.fillStyle = penColor.value;
   contx.strokeStyle = penColor.value;
-  contx.fillRect(mouse.x-15,mouse.y-15,30,30)
+  contx.fillRect(x,y,30,30)
   contx.stroke();
   contx.closePath();
 };
