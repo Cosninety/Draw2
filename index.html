@@ -1,0 +1,150 @@
+<!-- I referenced the following online course to complete this coding challenge: https://www.udemy.com/javascript-html5-canvas-course/ -->
+<!-- Another potentially useful reference : http://www.williammalone.com/articles/create-html5-canvas-javascript-drawing-app/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>539_Waiver_Challenge</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <!-- <script $( document ).ready()  ></script>
+   -->
+   <!-- <script language="javascript" src="p5.dom.js"> -->
+   <script language="javascript" type="text/javascript" src="path/to/p5.dom.js"></script>
+
+
+
+</head>
+
+<main>
+<body class = "body1">
+
+<h1 id="title"></h1>
+
+<canvas id ="canvasMain"></canvas>
+
+<div >
+
+
+  <span>Color<input type ="color" value ="#FF0000" id="penColor"></span>
+</div>
+
+<script>
+
+$("#title").text("539_Waiver_Challenge")
+
+
+var canvas = document.querySelector('#canvasMain')
+
+var contx = canvas.getContext('2d');
+
+contx.canvas.width = window.innerWidth * .8;
+contx.canvas.height = window.innerHeight * .8;
+
+
+
+canvas.style.border = '1px solid black'
+var penColor = document.querySelector('#penColor');
+var penWidth = document.querySelector('#penWidth');
+
+// document.querySelector('.clear').addEventListener("click",clearImage);
+
+// mouse tracker
+const mouse = {draw:false, x:0, y:0, lastX:0, lastY:0};
+canvas.addEventListener('mousemove',function(event){
+  mouse.lastX =mouse.x;
+  mouse.lastY=mouse.y;
+  mouse.x = event.x - canvas.offsetLeft;
+  mouse.y = event.y  - canvas.offsetTop;
+  draw();
+})
+
+canvas.addEventListener('mouseover',function(){
+draw(val ='down');
+})
+
+window.addEventListener('keydown', function(e) {
+ console.log(e.keyCode)
+
+//blue rrggbb
+ if (e.keyCode === 66) {
+ penColor.value =  "#0000FF"
+ return penColor.value;
+ }
+
+//green
+ if (e.keyCode === 71) {
+ penColor.value =  "#00FF00"
+ return penColor.value;
+ }
+
+ //RED
+ if (e.keyCode === 82) {
+ penColor.value =  "#FF0000"
+ return penColor.value;
+ }
+
+ //YELLOW
+ if (e.keyCode === 89) {
+ penColor.value =  "#FFFF00"
+ return penColor.value;
+ }
+
+ if (e.keyCode === 40) {
+ return draw(val= 'down');
+ }
+
+ if (e.keyCode === 38) {
+ return draw(val = 'up');
+}
+
+
+if (e.keyCode === 32) {
+  contx.clearRect(0,0,canvas.offsetWidth,canvas.offsetHeight);
+}
+
+
+
+});
+
+
+canvas.addEventListener('mouseout',function(){
+  draw('up');
+})
+//
+// function draw(val){
+function draw(val){
+  if(val === 'up'){
+    mouse.draw=false;
+  }
+  if(val === 'down'){
+    mouse.draw=true;
+  }
+  if(mouse.draw){
+    console.log('drawing');
+    contx.beginPath();
+    contx.moveTo(mouse.lastX,mouse.lastY);
+    contx.fillStyle = penColor.value;
+    contx.strokeStyle = penColor.value;
+    contx.fillRect(mouse.x-15,mouse.y-15,30,30)
+    // contx.lineWidth = 30;
+
+    contx.stroke();
+    contx.closePath();
+  }
+}
+
+
+
+</script>
+
+
+</main>
+</body>
+</html>
