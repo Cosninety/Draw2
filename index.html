@@ -1,6 +1,10 @@
 <!-- I referenced the following online course to complete this coding challenge: https://www.udemy.com/javascript-html5-canvas-course/ -->
 <!-- Another potentially useful reference : http://www.williammalone.com/articles/create-html5-canvas-javascript-drawing-app/ -->
 
+<!-- I referenced the following site for developing the mobile touch portion of the project: http://bencentra.com/code/2014/12/05/html5-canvas-touch-events.html and // https://codepen.io/JTParrett/pen/EnpcH-->
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,6 +144,29 @@ function draw(val){
   }
 }
 
+// https://codepen.io/JTParrett/pen/EnpcH
+
+
+canvas.addEventListener('touchstart', function(e){
+  draw2(e.changedTouches[0].pageX, e.changedTouches[0].pageY);
+  draw2(e.changedTouches[1].pageX, e.changedTouches[1].pageY);
+});
+
+canvas.addEventListener('touchmove', function(e){
+  e.preventDefault();
+  draw2(e.changedTouches[0].pageX, e.changedTouches[0].pageY);
+  draw2(e.changedTouches[1].pageX, e.changedTouches[1].pageY);
+});
+
+draw2 = function(x, y){
+  contx.beginPath();
+  contx.fillStyle = penColor.value;
+  // contx.arc(x, y, 30, 0, 2 * Math.PI);
+  contx.strokeStyle = penColor.value;
+  contx.fillRect(mouse.x-15,mouse.y-15,30,30)
+  contx.stroke();
+  contx.closePath();
+};
 
 
 </script>
