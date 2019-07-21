@@ -148,27 +148,28 @@ function draw(val){
 
 
 canvas.addEventListener('touchstart', function(e){
-  draw2(e.changedTouches[0].pageX, e.changedTouches[0].pageY);
-  draw2(e.changedTouches[1].pageX, e.changedTouches[1].pageY);
+  draw2(e.changedTouches[0].pageX - canvas.offsetLeft, e.changedTouches[0].pageY - canvas.offsetTop);
+  draw2(e.changedTouches[1].pageX - canvas.offsetLeft, e.changedTouches[1].pageY - canvas.offsetTop);
 });
 
 canvas.addEventListener('touchmove', function(e){
   e.preventDefault();
-  draw2(e.changedTouches[0].pageX, e.changedTouches[0].pageY);
-  draw2(e.changedTouches[1].pageX, e.changedTouches[1].pageY);
+  draw2(e.changedTouches[0].pageX - canvas.offsetLeft, e.changedTouches[0].pageY - canvas.offsetTop);
+  draw2(e.changedTouches[1].pageX - canvas.offsetLeft, e.changedTouches[1].pageY - canvas.offsetTop);
 });
 
-draw = function(x, y){
+draw2 = function(x, y){
   contx.beginPath();
   contx.fillStyle = penColor.value;
-  //for circle
-  // contx.arc(x, y, 30, 0, 2 * Math.PI);
   contx.fillStyle = penColor.value;
   contx.strokeStyle = penColor.value;
   contx.fillRect(x,y,30,30)
   contx.stroke();
   contx.closePath();
 };
+
+//for circle
+// contx.arc(x, y, 30, 0, 2 * Math.PI);
 
 
 </script>
