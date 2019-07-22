@@ -173,7 +173,7 @@ draw2 = function(x, y){
 window.addEventListener("orientationchange", function() {
   alert('Screen Orientation/Size Changed');
   contx.clearRect(0,0,canvas.offsetWidth,canvas.offsetHeight);
-  renderer().resize(contx.canvas.width, contx.canvas.height);
+  renderer().resize(contx.canvas.width = window.innerWidth * .8 , contx.canvas.height = window.innerHeight * .8);
   // contx.canvas.width = window.innerWidth * .8;
   // contx.canvas.height = window.innerHeight * .8;
 });
