@@ -144,9 +144,7 @@ function draw(val){
   }
 }
 
-// https://codepen.io/JTParrett/pen/EnpcH
-
-
+// https://codepen.io/JTParrett/pen/EnpcH Touch reference
 canvas.addEventListener('touchstart', function(e){
   draw2(e.changedTouches[0].pageX - canvas.offsetLeft, e.changedTouches[0].pageY - canvas.offsetTop);
   draw2(e.changedTouches[1].pageX - canvas.offsetLeft, e.changedTouches[1].pageY - canvas.offsetTop);
@@ -167,41 +165,16 @@ draw2 = function(x, y){
   contx.closePath();
 };
 
-//for circle
-// contx.arc(x, y, 30, 0, 2 * Math.PI);
 
-// window.addEventListener("orientationchange", function() {
-//   alert('Screen Orientation/Size Changed');
-//   contx.clearRect(0,0,canvas.offsetWidth,canvas.offsetHeight);
-//
-
-
-
-
-
-  // if(window.screen.height > window.screen.width){
-  //   alert("Landscape Mode!");
-  //   contx.canvas.width = window.screen.width * .8;
-  //   contx.canvas.height = window.screen.height * .8;
-  // }
-  //
-  // if(window.screen.height < window.screen.width){
-  //   alert("Portrait Mode!");
-  //   contx.canvas.width = window.screen.width * .8;
-  //   contx.canvas.height = window.screen.height * .8;
-  // }
-// resize?
-// });
-
-// https://mobiforge.com/design-development/html5-mobile-web-canvas
+// https://mobiforge.com/design-development/html5-mobile-web-canvas Screen resize reference
 window.addEventListener('resize', resizeCanvas, false);
 window.addEventListener('orientationchange', resizeCanvas, false);
 resizeCanvas();
 
 function resizeCanvas() {
+  contx.clearRect(0,0,canvas.offsetWidth,canvas.offsetHeight);
   canvas.width = window.innerWidth * .8;
   canvas.height = window.innerHeight * .8;
-
 }
 
 
