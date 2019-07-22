@@ -29,7 +29,7 @@
 <main>
 <body class = "body1">
 
-<h1 id="title"></h1>
+<!-- <h1 id="title"></h1> -->
 
 <canvas id ="canvasMain"></canvas>
 
@@ -41,7 +41,7 @@
 
 <script>
 
-$("#title").text("539_Waiver_Challenge")
+// $("#title").text("539_Waiver_Challenge")
 
 
 var canvas = document.querySelector('#canvasMain')
@@ -185,12 +185,9 @@ window.addEventListener("orientationchange", function() {
   // }
   if(window.screen.height > window.screen.width){
     alert("Landscape Mode!");
-    // contx.canvas.width = window.screen.height* .8
-    // contx.canvas.height = window.screen.width * .8
     contx.canvas.width = window.screen.width * .8
     contx.canvas.height = window.screen.height * .8
-  }
-  if(window.innerHeight < window.screen.width){
+  } else {
     alert("Portrait Mode!");
     contx.canvas.width = window.screen.width * .8
     contx.canvas.height = window.screen.height * .8
