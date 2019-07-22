@@ -173,15 +173,25 @@ draw2 = function(x, y){
 window.addEventListener("orientationchange", function() {
   alert('Screen Orientation/Size Changed');
   contx.clearRect(0,0,canvas.offsetWidth,canvas.offsetHeight);
-  if(window.innerHeight > window.innerWidth){
+  // if(window.innerHeight > window.innerWidth){
+  //   alert("Landscape Mode!");
+  //   contx.canvas.width = window.innerHeight * .8
+  //   contx.canvas.height = window.innerWidth * .8
+  // }
+  // if(window.innerHeight < window.innerWidth){
+  //   alert("Portrait Mode!");
+  //   contx.canvas.width = window.innerWidth * .8
+  //   contx.canvas.height = window.innerHeight * .8
+  // }
+  if(window.screen.height > window.screen.width){
     alert("Landscape Mode!");
-    contx.canvas.width = window.innerHeight * .8
-    contx.canvas.height = window.innerWidth * .8
+    contx.canvas.width = window.screen.height* .8
+    contx.canvas.height = window.screen.width * .8
   }
-  if(window.innerHeight < window.innerWidth){
+  if(window.innerHeight < window.screen.width){
     alert("Portrait Mode!");
-    contx.canvas.width = window.innerWidth * .8
-    contx.canvas.height = window.innerHeight * .8
+    contx.canvas.width = window.screen.width * .8
+    contx.canvas.height = window.screen.height * .8
   }
 // resize?
 });
