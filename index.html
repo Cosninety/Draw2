@@ -185,8 +185,10 @@ window.addEventListener("orientationchange", function() {
   // }
   if(window.screen.height > window.screen.width){
     alert("Landscape Mode!");
-    contx.canvas.width = window.screen.height* .8
-    contx.canvas.height = window.screen.width * .8
+    // contx.canvas.width = window.screen.height* .8
+    // contx.canvas.height = window.screen.width * .8
+    contx.canvas.width = window.screen.width * .8
+    contx.canvas.height = window.screen.height * .8
   }
   if(window.innerHeight < window.screen.width){
     alert("Portrait Mode!");
