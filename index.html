@@ -171,8 +171,10 @@ draw2 = function(x, y){
 // contx.arc(x, y, 30, 0, 2 * Math.PI);
 
 window.addEventListener("orientationchange", function() {
-  alert('rotation detected');
+  alert('Screen Orientation/Size Changed');
   contx.clearRect(0,0,canvas.offsetWidth,canvas.offsetHeight);
+  contx.canvas.width = window.innerWidth * .8;
+  contx.canvas.height = window.innerHeight * .8;
 });
 
 </script>
